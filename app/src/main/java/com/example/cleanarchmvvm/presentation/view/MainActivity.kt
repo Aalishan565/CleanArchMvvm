@@ -1,4 +1,4 @@
-package com.example.cleanarchmvvm.presentation
+package com.example.cleanarchmvvm.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

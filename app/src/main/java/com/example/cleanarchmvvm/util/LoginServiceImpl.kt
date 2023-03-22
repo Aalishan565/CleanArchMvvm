@@ -2,11 +2,12 @@ package com.example.cleanarchmvvm.util
 
 import com.example.cleanarchmvvm.data.model.LoginUserRequest
 import com.example.cleanarchmvvm.data.model.LoginUserResponse
+import javax.inject.Inject
 
 /**
  * Created by Aalishan Ansari on 13/03/23.
  */
-class LoginServiceImpl : LoginService {
+class LoginServiceImpl @Inject constructor() : LoginService {
 
     override fun doLogin(loginUser: LoginUserRequest): LoginUserResponse {
 
