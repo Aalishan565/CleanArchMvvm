@@ -3,7 +3,7 @@ package com.example.cleanarchmvvm.domain.repository
 import com.example.cleanarchmvvm.data.model.LoginUserRequest
 import com.example.cleanarchmvvm.data.model.LoginUserResponse
 import com.example.cleanarchmvvm.data.repository.LoginRepository
-import com.example.cleanarchmvvm.util.LoginService
+import com.example.cleanarchmvvm.remote.LoginService
 import javax.inject.Inject
 
 /**
@@ -12,7 +12,7 @@ import javax.inject.Inject
 class LoginRepositoryImpl @Inject constructor(private val loginService: LoginService) :
     LoginRepository {
 
-    override fun doLogin(loginRequest: LoginUserRequest): LoginUserResponse {
+    override suspend fun doLogin(loginRequest: LoginUserRequest): LoginUserResponse {
         return loginService.doLogin(loginRequest)
     }
 }

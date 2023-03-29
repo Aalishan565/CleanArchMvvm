@@ -1,4 +1,4 @@
-package com.example.cleanarchmvvm.util
+package com.example.cleanarchmvvm.remote
 
 import com.example.cleanarchmvvm.data.model.LoginUserRequest
 import com.example.cleanarchmvvm.data.model.LoginUserResponse

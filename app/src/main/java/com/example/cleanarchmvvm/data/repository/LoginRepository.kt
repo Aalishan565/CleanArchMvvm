@@ -7,5 +7,5 @@ import com.example.cleanarchmvvm.data.model.LoginUserResponse
  * Created by Aalishan Ansari on 13/03/23.
  */
 interface LoginRepository {
-    fun doLogin(loginRequest: LoginUserRequest): LoginUserResponse
+    suspend fun doLogin(loginRequest: LoginUserRequest): LoginUserResponse
 }
