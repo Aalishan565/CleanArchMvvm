@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.cleanarchmvvm.R
 import com.example.cleanarchmvvm.data.model.LoginUserRequest
 import com.example.cleanarchmvvm.data.model.LoginUserResponse
-import com.example.cleanarchmvvm.data.repository.LoginRepository
+import com.example.cleanarchmvvm.domain.use_case.LoginUseCase
 import com.example.cleanarchmvvm.utils.Resource
 import com.example.cleanarchmvvm.utils.ValidationUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +23,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val application: Application,
-    private val loginRepository: LoginRepository
+    private val loginUseCase: LoginUseCase
 ) :
     AndroidViewModel(application) {
 
@@ -46,7 +46,7 @@ class LoginViewModel @Inject constructor(
     }
 
     private suspend fun doLogin(loginReq: LoginUserRequest) {
-        val result = loginRepository.doLogin(loginReq)
+        val result = loginUseCase.invoke(loginReq)
         if (result.responseCode == 200) {
             _loginResult.postValue(Resource.Success(result))
         } else {
