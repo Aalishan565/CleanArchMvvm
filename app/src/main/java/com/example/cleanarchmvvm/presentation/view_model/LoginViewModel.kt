@@ -32,6 +32,7 @@ class LoginViewModel @Inject constructor(
 
     fun validateInputAndDoLogin(userName: String, pwd: String, dispatcher: CoroutineDispatcher) {
         viewModelScope.launch(dispatcher) {
+            _loginResult.postValue(Resource.Loading())
             if (!ValidationUtil.isValidInput(userName) && !ValidationUtil.isValidInput(pwd)) {
                 _loginResult.postValue(Resource.Error(application.getString(R.string.please_enter_valid_input)))
             } else if (!ValidationUtil.isValidInput(userName)) {
