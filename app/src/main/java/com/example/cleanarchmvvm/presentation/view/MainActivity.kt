@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         _mainActivity = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_mainActivity!!.root)
         initViews()
+        initObserver()
     }
 
     private fun initObserver() {
@@ -66,7 +67,6 @@ class MainActivity : AppCompatActivity() {
             val userName = mainActivityBinding.etUserName.text.toString()
             val pwd = mainActivityBinding.etPwd.text.toString()
             loginViewModel.validateInputAndDoLogin(userName, pwd, Dispatchers.IO)
-            initObserver()
         }
     }
 
